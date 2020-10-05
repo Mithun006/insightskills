@@ -1,0 +1,175 @@
+<div>
+  <ng-template #customLoadingTemplate></ng-template>
+
+  <div class="header">
+    <div class="row">
+      <div class="col">
+        <p><a routerLink='/practice'>Practice</a> > <a routerLink='/practice/practicetest'>Practice Test</a> > Solve</p>
+        <h3 class="header_1">Solve the Challenge</h3>
+        <hr>
+      </div>
+      <!-- <div class="col"></div>
+
+      <p>Overall Score</p>
+    </div>  -->
+  </div>
+  
+  
+   
+    <div  class="container">
+     <div  class="row">
+         <div class="col-4-lg" style="width: 50em;">
+           <div class="card" style="background-color: whitesmoke;">
+             <div class="card-body">
+                <div>
+                 <div  class="container">
+                   <div  class="row">
+                       <div class="col-4-lg">
+                        
+                             <div class="card" style="width:46.5em;">
+                               <div class="card-body" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" 
+                               unselectable="on"
+                               onselectstart="return false;" 
+                               onmousedown="return false;">
+                                   <p>{{practice?.question.title}}</p>
+                               </div>
+                           </div>
+                         
+                          
+                       </div>
+               
+                   </div>
+               </div>
+    
+               <mat-radio-group aria-label="Select an option" [(ngModel)]="favoriteSeason">
+                 <div  class="container">
+                   <div  class="row">
+                       <div class="col-4-lg ml-5">
+                       
+                             <div class="card mt-4" style="width: 18em;">
+                               <div class="card-body">
+                                 <mat-radio-button value={{practice?.question.optA}}>{{practice?.question.optA}}</mat-radio-button>
+                               </div>
+                           </div>
+                        
+                          
+                       </div>
+                       <div class="col-4-lg ml-5">
+                       
+                             <div class="card mt-4" style="width: 18em;">
+                               <div class="card-body">
+                                 <mat-radio-button value={{practice?.question.optB}}>{{practice?.question.optB}}</mat-radio-button>
+                               </div>
+                           </div>
+                      
+                          
+                       </div>
+               
+                   </div>
+                   <div  class="row">
+                     <div class="col-4-lg ml-5">
+                       
+                           <div class="card mt-4" style="width: 18em;">
+                             <div class="card-body">
+                               <mat-radio-button value={{practice?.question.optC}}>{{practice?.question.optC}}</mat-radio-button>
+                             </div>
+                         </div>
+                       
+                        
+                     </div>
+                     <div class="col-4-lg ml-5">
+                      
+                           <div class="card mt-4" style="width: 18em;">
+                             <div class="card-body">
+                               <mat-radio-button value={{practice?.question.optD}}>{{practice?.question.optD}}</mat-radio-button>
+                             </div>
+                         </div>
+                       
+                        
+                     </div>
+               
+                 </div>
+                   
+               </div>
+               
+               
+               
+               </mat-radio-group>
+                 
+               
+                </div>
+             </div>
+         </div>
+          
+            
+         </div>
+    
+     </div>
+    </div>
+    
+  
+  
+  
+  
+      <section>
+        <div class="btn example-button-row">
+          <button mat-raised-button style="width: 10em;background: green;color: white;" (click)='checkanswer()'>Submit</button>
+        </div>
+      </section>
+      <div>
+      </div>
+  
+      <div *ngIf="isTrue" class="container">
+        <div  class="row">
+            <div class="col-4-lg mt-4" style="width: 50em;">
+              <div class="card">
+                <div class="card-body" style="background: green;color: white;white-space: nowrap;height: 7em;">
+                  <h4>Hey :)</h4>
+                  <p>Your answer is Submitted. Answer {{unlock}}/8 to view the correct answer</p>
+                  <div class="btn_1 example-button-row">
+                    <button mat-raised-button style="width: 10em;background:white;color: black;"(click)='next()'>Next Challenge</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  
+    <div *ngIf='isWrong'  class="container">
+      <div  class="row">
+          <div class="col-4-lg mt-4" style="width: 50em;">
+            <div class="card">
+              <div class="card-body" style="background: white;color: red;white-space: nowrap;height: 7em;">
+                <h4>Something went wrong :)</h4>
+                 <p>Try again</p>
+                <div class="btn_1 example-button-row">
+                  <button mat-raised-button style="width: 10em;background:red;color: white;" (click)='wrong()'>Try Again</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+  <div *ngIf='isempty'  class="container">
+    <div  class="row">
+        <div class="col-4-lg mt-4" style="width: 50em;">
+          <div class="card">
+            <div class="card-body" style="background: red;color: white;white-space: nowrap;height: 7em;">
+              <h4>Please select any option</h4>
+              <p>Select any option to submit your response</p>
+              <div class="btn_1 example-button-row">
+                <button mat-raised-button style="width: 10em;background:white;color: black;">close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div>
+    
+  </div>
+
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
+</div>
+ 
+<!-- <button (click)='next()'>check</button> -->

@@ -1,0 +1,77 @@
+<div class="header"> 
+    <p><a routerLink='/practice'>Practice</a> ><span> <a routerLink="/practice/portal">Interview Preparation</a></span></p>
+    <h3 class="header_1">Interview Preparation</h3>
+    <hr>
+</div>
+<ng-template #customLoadingTemplate></ng-template>
+
+<div class="row">
+
+    <div *ngFor='let ques of Test;let i=index '> 
+        <div class="col-sm-6">
+            <div *ngIf="ques.test.test.type==='Interview'" class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ques.test.test.title}}</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <div *ngIf='!check[i]'>
+                        <button class="btn btn-outline-success float-right" (click)='min(i)' [disabled]='testStatus'>{{testStstus_text}}</button>
+                    </div>
+                    <div *ngIf='check[i]'>
+                        <button mat-raised-button color="success" disabled>Solved</button> 
+                    </div>
+                  </div>
+                  <div *ngIf='!check[i]'>
+                    <div class="card-footer text-muted">
+                        Duration:{{ques.test.test.durations}} minutes
+                        <p style="float:right;">Max Mark:{{ques.test.test.maxmark}}</p>
+                      </div>  
+                  </div>
+                  <div *ngIf='check[i]'>
+                    <div class="card-footer text-muted">
+                        Score:{{score[i]}}/{{ques.test.test.maxmark}}
+                       <p style='float:right;'> Percent:{{math.floor((score[i]*100)/ques.test.test.maxmark)}}%</p>
+                      </div>  
+                  </div>
+                  
+          </div>
+    </div>
+
+    </div>
+    
+  </div>
+  <!-- <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading> -->
+
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+
+  <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+  <div class="modal-dialog modal-dialog-centered" role="document">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Alert!</h5>
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </div>
+      <div class="modal-body">
+        {{text}}
+      </div>
+      <div class="modal-footer">
+      <div *ngIf='!enableResult'>
+        <button type="button" class="btn btn-success" (click)='startTest()'>Start</button>
+        
+        <button type="button" class="btn btn-outline-success" data-dismiss="modal">Close</button>
+      </div>
+        <!-- <div *ngIf='enable'>
+          <button type="button" class="btn btn-success" routerLink='testresult' [disabled]='enableResult'>wait</button>
+        </div> -->
+        <div *ngIf='enableResult'>
+          <button type="button" class="btn btn-success" routerLink='testresult'  [disabled]='!finished'>Finish</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

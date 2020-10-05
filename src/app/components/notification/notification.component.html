@@ -1,0 +1,11 @@
+<div>
+    <h5>{{notification.title}}</h5>
+</div>
+<div>
+    <p>{{notification.content}}</p>
+</div>
+<div *ngIf='notification.links.length'>
+    <div *ngFor='let link of notification.links'>
+        <a href={{link}} target="_blank">{{link}}</a>
+    </div>
+</div>

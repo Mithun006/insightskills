@@ -1,0 +1,333 @@
+
+<div>
+  <ng-template #customLoadingTemplate></ng-template>  
+
+  <div class="header"> 
+      <p>Test Result</p>
+      <h3 class="header_1">Result & Analysis</h3>
+      <hr>
+  </div>
+  
+  
+  <div class="row">
+      <div class="col" style="width: auto;margin: 0px 60px;">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                  aria-selected="true">College Test Result</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                  aria-selected="false">Admin Test Result</a>
+              </li>
+            </ul>
+      </div>
+  
+      <div class="col">
+          <ul class="nav nav-tabs" id="myTab" role="tablist" style="width: 80%;white-space: nowrap;">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#daily" role="tab" aria-controls="home"
+                  aria-selected="true">Daily Report</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#weekly" role="tab" aria-controls="profile"
+                  aria-selected="false">Weekly Report</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#monthly" role="tab" aria-controls="profile"
+                    aria-selected="false">Monthly Report</a>
+                </li>
+            </ul>
+      </div>
+  </div>
+  
+  
+  <div class="row">
+      <div class="col" style="width: auto;margin: 0px 50px;">
+          <div class="tab-content" id="myTabContent">
+              <br>
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <div *ngFor='let res of ctest;let i=index'>
+                      <mat-expansion-panel>
+                          <mat-expansion-panel-header>
+                            <mat-panel-title>
+                             {{i+1}}
+                             &nbsp;
+                             &nbsp;
+                             &nbsp;
+                             &nbsp;
+                             &nbsp;
+                            {{res.startTime.slice(0,10)}}
+                            </mat-panel-title>
+                            
+                            <mat-panel-description>
+                              {{Ctest[i].title}}
+                             
+                             
+                              
+                            </mat-panel-description>
+  
+                            
+                            
+                          </mat-expansion-panel-header>
+                        
+                          <div class="row">
+                            <div class="col">
+                              <div class="container">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <b>Overall Progress</b>
+                                  </div>
+  
+                                  <div class="card-body">
+                                    <div class="row">
+                                      <div class="col" >
+  
+  
+                                        <p>Topper Score:<b>{{Ctest[i].highestScore}}</b></p>
+                                        <p>Average Score:<b>{{Ctest[i].averageScore}}</b></p>
+                                        <p>Least Score:<b>{{Ctest[i].leastScore}}</b></p>
+                                      </div>
+                                      <div class="col">
+                                        <circle-progress
+                                        [percent]="(Ctest[i].highestScore*100)/Ctest[i].maxmark"
+                                        [radius]="50"
+                                        [outerStrokeWidth]="6"
+                                        [innerStrokeWidth]="8"
+                                        [outerStrokeColor]="'#4882c2'"
+                                        [innerStrokeColor]="'#e7e8ea'"
+                                        [animation]="true"
+                                        [animationDuration]="1000"
+                                      ></circle-progress>
+  
+                                      </div>
+  
+                                    </div>
+                                   
+                                     
+  
+                                      
+  
+                                     
+  
+                                      </div>
+  
+                                   
+                                    
+  
+                                  </div>
+                                  
+                                </div>
+  
+                              </div>
+  
+                           
+  
+                            <div class="col">
+                              <div class="container">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <b>Your Progress</b>
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="row">
+                                      <div class="col">
+  
+                                        <p>Your Score:<b>{{res.score}}</b></p>
+                                        <p>Average Score:<b>{{Ctest[i].averageScore}}</b></p>
+                                        <p>Least Score:<b>{{Ctest[i].leastScore}}</b></p>
+                                      </div>
+  
+                                      <div class="col">
+                                        <circle-progress
+                                        [percent]="(res.score*100)/Ctest[i].maxmark"
+                                        [radius]="50"
+                                        [outerStrokeWidth]="6"
+                                        [innerStrokeWidth]="8"
+                                        [outerStrokeColor]="'#4882c2'"
+                                        [innerStrokeColor]="'#e7e8ea'"
+                                        [animation]="true"
+                                        [animationDuration]="1000"
+                                      ></circle-progress>
+  
+                                      </div>
+  
+                                    </div>
+                                  
+                                  </div>
+                                 
+                                </div>
+  
+                              </div>
+                            </div>
+                          </div>
+  
+                          
+                          
+              
+  
+                        </mat-expansion-panel>
+  
+                  </div>
+  
+              </div>
+              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                  <div *ngFor='let res of atest;let i=index'>
+                      <mat-expansion-panel>
+                          <mat-expansion-panel-header>
+                            <mat-panel-title>
+                              {{i+1}}
+                              &nbsp;
+                              &nbsp;
+                              &nbsp;
+                              &nbsp;
+                              &nbsp;
+                              &nbsp;
+                              
+                              {{res.startTime.slice(0,10)}}
+                            </mat-panel-title>
+                            <mat-panel-description>
+                              {{Atest[i].title}}
+                            </mat-panel-description>
+                          </mat-expansion-panel-header>
+  
+                          <div class="row">
+                            <div class="col">
+                              <div class="container">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <b>Overall Progress</b>
+                                  </div>
+  
+                                  <div class="card-body">
+                                    <div class="row">
+                                      <div class="col">
+  
+                                        <p>Topper Score:<b>{{Atest[i].highestScore}}</b></p>
+                                        <p>Average Score:<b>{{Atest[i].averageScore}}</b></p>
+                                        <p>Least Score:<b>{{Atest[i].leastScore}}</b></p>
+                                      </div>
+  
+                                      <div class="col">
+                                        <circle-progress
+                                        [percent]="(Atest[i].highestScore*100)/Atest[i].maxmark"
+                                        [radius]="50"
+                                        [outerStrokeWidth]="6"
+                                        [innerStrokeWidth]="8"
+                                        [outerStrokeColor]="'#4882c2'"
+                                        [innerStrokeColor]="'#e7e8ea'"
+                                        [animation]="true"
+                                        [animationDuration]="1000"
+                                      ></circle-progress>
+  
+                                      </div>
+  
+                                    </div>
+                                   
+                                     
+  
+                                      
+  
+                                     
+  
+                                      </div>
+  
+                                   
+                                    
+  
+                                  </div>
+                                  
+                                </div>
+  
+                              </div>
+  
+                           
+                              
+                            <div class="col">
+                              <div class="container">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <b>Your Progress</b>
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="row">
+  
+                                      <div class="col">
+    
+                                        <p>Your Score:<b>{{res.score}}</b></p>
+                                        <p>Average Score:<b>{{Atest[i].averageScore}}</b></p>
+                                        <p>Least Score:<b>{{Atest[i].leastScore}}</b></p>
+                                      
+                                      </div>
+    
+                                      <div class="col">
+                                        <circle-progress
+                                        [percent]="(res.score*100)/Atest[i].maxmark"
+                                        [radius]="50"
+                                        [outerStrokeWidth]="6"
+                                        [innerStrokeWidth]="8"
+                                        [outerStrokeColor]="'#4882c2'"
+                                        [innerStrokeColor]="'#e7e8ea'"
+                                        [animation]="true"
+                                        [animationDuration]="1000"
+                                      ></circle-progress>
+                                         
+                                       
+    
+                                      </div>
+                                    </div>
+  
+  
+                                  </div>
+                                 
+                                </div>
+  
+                              </div>
+                            </div>
+                          </div>
+  
+                         
+                        </mat-expansion-panel>
+  
+                  </div>
+  
+              </div>
+              
+            </div>
+  
+      </div>
+     
+  
+      <div class="col">
+          <div class="tab-content" id="myTabContent">
+              <br>
+              <div class="tab-pane fade show active" id="daily" role="tabpanel" aria-labelledby="home-tab">
+                 
+                <div>
+                  <canvas id='canvas' style="height:4vh; width:4vw">{{chart}}</canvas>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="weekly" role="tabpanel" aria-labelledby="profile-tab">
+                <div>
+                  <canvas id='ccanvas' style="height:4vh; width:4vw">{{wchart}}</canvas>
+                </div>
+  
+              </div>
+              <div class="tab-pane fade" id="monthly" role="tabpanel" aria-labelledby="contact-tab">
+                <div>
+                  <canvas id='acanvas' style="height:4vh; width:4vw">{{mchart}}</canvas>
+                </div>
+  
+              </div>
+            </div>
+  
+      </div>
+      
+  </div>
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
+</div>
+  
+
+
+
+  

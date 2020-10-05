@@ -1,0 +1,45 @@
+<nav *ngIf="UserIsAuthenticated" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink='practice'>Logo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink='/practice'>Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink='/docs'>Tricks</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink='/leaderboard'>Leaderboard</a>
+        </li>
+       
+        <li class="nav-item active">
+          <a class="nav-link" routerLink='/documentation' >Docs</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      </form>
+      
+     
+      <div class="dropdown">
+        <button class="btn btn-secondary btn-dark dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{data}}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" routerLink='profile'>Profile</a>
+          <a class="dropdown-item">Settings</a>
+          <a class="dropdown-item" routerLink='testresult'>Results</a>
+
+          <a class="dropdown-item" (click)='onLogout()'>Log out</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+ 
+ 

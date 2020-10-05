@@ -1,0 +1,26 @@
+[
+    {
+      "message": "Questions fetched successfully",
+      "question___id": "5eb14cc9d40c7b053c33f064",
+      "question__question": "The present ages of three colleague's are in proportions 3 : 5 : 7. Four years ago, the sum of thier ages was 48. find thier present ages (in years) ?",
+      "question__option1": "12 , 20 and 28 years",
+      "question__option2": "13 , 15  and 23 years",
+      "question__option3": "11 , 16 and 19 years",
+      "question__option4": "20,  24 and 27 years",
+      "question__option5": "None of the above",
+      "question__answer": "12 , 20 and 28 years",
+      "question____v": 0
+    },
+    {
+      "message": "",
+      "question___id": "5eb57968ccc4570394c50b7e",
+      "question__question": "The ratio of the Mother's age to her daughter's age is 9 : 5. The product of their ages is 1125. The ratio of their ages after five years will be :",
+      "question__option1": "1 : 3",
+      "question__option2": "2 : 3",
+      "question__option3": "3 : 4",
+      "question__option4": "5 : 3",
+      "question__option5": "None of the above",
+      "question__answer": "5 : 3",
+      "question____v": 0
+    }
+   ]

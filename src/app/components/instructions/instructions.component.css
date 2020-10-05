@@ -1,0 +1,21 @@
+.portal{
+    padding-left: 7%;
+    margin-top:5%;
+     position: absolute;
+    z-index: 2; 
+}
+.duration{
+    margin-top: 5%;
+}
+.test{
+    margin-top: 10%;
+    font-weight: 50px;
+}
+.timer{
+    position:absolute;
+    z-index: 1;
+    padding-left: 50%;
+    margin-top: 10%;
+
+
+}

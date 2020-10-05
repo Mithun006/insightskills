@@ -1,0 +1,60 @@
+<div>
+    <ng-template #customLoadingTemplate></ng-template>
+
+    <div class="portal">
+       
+        <h5>
+           Insight Skills
+        </h5>
+        <br>
+            <h5>
+                Hey
+            {{userName}},
+            </h5>
+            <br>
+            <h2>
+                <b>
+                    Welcome to
+                    Insight Skills <br> Apptitude Skills Challenge <br> Test
+                </b>
+            </h2>
+    <br>
+            <p class="duration">
+                Test Duration &nbsp; &nbsp; &nbsp; &nbsp; No. of questions
+                <br>
+                <b>   {{duration}} mins &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; {{noofq}} questions</b>
+            </p>
+            <br>
+            <p>Topic:<b>{{topic}}</b></p>
+            <br>
+            <p class="test">
+                Test Powered by <b>Insight Skills</b>  
+            </p>
+    </div>
+    
+    
+    <div class="timer">
+        <h2>
+           <b> Instructions</b>
+        </h2>
+        <p>
+            <br>
+            1.This is a timed test. Please make sure you are not interrupted during the test, as the <br> &nbsp;&nbsp;&nbsp;timer cannot be paused once started.
+            <br>
+            <br>
+            2.Please ensure you have a stable internet connection.
+            <br>
+            <br>
+            3.We recommend you to try the sample test for a couple of minutes, before <br>&nbsp;&nbsp;&nbsp; taking the main test.
+        </p>
+        <div *ngIf='IsDisabled'>
+            <button mat-raised-button color="success" disabled>Take Test</button> 
+            &nbsp;&nbsp;
+            <p style="display: inline;">{{counterr}}</p>      
+        </div>
+        <div *ngIf='!IsDisabled'>
+            <a  class="btn btn-outline-success" (click)='getQues()'>Take Test</a>   
+        </div>
+    </div>
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
+</div>

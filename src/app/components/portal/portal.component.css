@@ -1,0 +1,21 @@
+.header{
+
+    padding: 1% 5%;
+}
+.header_1{
+    padding:0% -2%;
+}
+a{
+    color: inherit;
+}
+.card:hover{
+    
+    -webkit-box-shadow:-1px 9px 40px -12px rgba(0,0,0,0.75);
+    -maz-box-shadow:-1px 9px 40px -12px rgba(0,0,0,0.75);
+    box-shadow: -1px 9px 40px -12px rgb(0, 0, 0,0.75);
+
+
+}
+/* .card{
+    margin-left:25%;
+} */

@@ -1,0 +1,9 @@
+
+    {
+        "/api/*": {
+          "target": "https://student-insightskills.herokuapp.com",
+          "secure": false,
+          "logLevel": "debug",
+          "changeOrigin": true
+        }
+    }

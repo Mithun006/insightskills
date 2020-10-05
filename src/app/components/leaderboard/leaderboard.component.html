@@ -1,0 +1,22 @@
+
+<div class="header"> 
+    <p>Leader Board</p>
+    <h3 class="header_1">Dashboard</h3>
+    <hr>
+</div>
+<table class="table table-hover" style="margin-left:5%;width: 80%;">
+    <thead>
+        <tr>
+            <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+          </tr>
+    </thead>
+    <tbody>
+        <tr mdbTableCol *ngFor="let el of elements">
+            <th scope="row">{{el.rank}}</th>
+            <td>{{el.firstName}}</td>
+            <td>{{el.lastName}}</td>
+            <td>{{el.overallScore}}</td>
+          </tr>
+      
+    </tbody>
+  </table>

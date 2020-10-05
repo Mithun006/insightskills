@@ -1,0 +1,133 @@
+<div *ngIf='UserIsAuthenticated'>
+    <div class="header"> 
+        <p>Home</p>
+        <h3 class="header_1">Dashboard</h3>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-4-lg ml-5 mb-5">
+                <div class="card" style="width: 30rem;">
+                    <div class="card-body">
+                        <p class="card-title">
+                            Interview Preparation kit
+                        </p>
+                        <h5 class="card-text">
+                            Learning Portal
+                        </h5>
+                        <a class="btn btn-outline-success" routerLink='learningportal'>Start Explore</a>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-4-lg ml-5 mb-5">
+                <div class="card" style="width: 30rem;">
+                    <div class="card-body">
+                        <p class="card-title">
+                            Interview Preparation kit
+                        </p>
+                        <h5 class="card-text">
+                            Practice Test
+                        </h5>
+                        <a class="btn btn-outline-success" routerLink='practicetest'>Start Explore</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4-lg ml-5 mb-5">
+                <div class="card" style="width: 30rem;">
+                    <div class="card-body">
+                        <p class="card-title">
+                            Interview Preparation kit
+                        </p>
+                        <h5 class="card-text">
+                            Exam Portal
+                            
+                        </h5>
+                        <a  class="btn btn-outline-success" routerLink='portal'>Start Explore</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4-lg ml-5 mb-5">
+                <div class="card" style="width: 30rem;">
+                    <div class="card-body">
+                        <p class="card-title">
+                            Interview Preparation kit
+                        </p>
+                        <h5 class="card-text" class="w">
+                            Interview Preparation Portal
+                        </h5>
+                       
+                            <a  class="btn btn-outline-success" routerLink='interview'>Start Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <h3>Quantitative Apptitude</h3>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="row ml-4">
+            <div *ngFor='let topic of qtopics' class="col-4-lg ">
+                <div class="card" style="width: 17rem;">
+                    <div class="card-body">
+                    <img class="float-left" [src]='topic.image' style="width: 18%;"> 
+                    <h6 class="card-text q">{{topic.topicName}}</h6>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+    <br>
+    <div class="header">
+        <h3>Logical Reasoning</h3>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="row ml-4">
+            <div *ngFor='let topic of ltopic' class="col-4-lg ">
+                <div class="card" style="width: 17rem;">
+                    <div class="card-body">
+                    <img class="float-left" [src]='topic.image' style="width: 18%;"> 
+                    <h6 class="card-text q">{{topic.topic}}</h6>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+
+</div>
+
+
+<!--<mat-card>
+    <mat-card-subtitle>
+        Practice
+    </mat-card-subtitle>
+   
+    <mat-card-title>
+        Practice Dashboard
+    </mat-card-title>
+</mat-card>
+
+<div >
+
+</div>
+
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-subtitle>Interview Preparation Kit</mat-card-subtitle>
+      <mat-card-title>Exam Portal</mat-card-title>
+      
+    </mat-card-header>
+   
+    
+    <mat-card-actions>
+        <button mat-flat-button color="primary">Primary</button>
+      
+    </mat-card-actions>
+  </mat-card>-->

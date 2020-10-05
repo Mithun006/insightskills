@@ -1,0 +1,220 @@
+<!-- Navbar-->
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light py-3">
+        <div class="container">
+            <!-- Navbar Brand -->
+            <a href="#" class="navbar-brand">
+                <img src="https://res.cloudinary.com/mhmd/image/upload/v1571398888/Group_1514_tjekh3_zkts1c.svg" alt="logo" width="150">
+            </a>
+        </div>
+    </nav>
+</header>
+
+
+<div class="container">
+    <div class="row py-5 mt-4 align-items-center">
+        <!-- For Demo Purpose -->
+        <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+            <img src="https://res.cloudinary.com/mhmd/image/upload/v1569543678/form_d9sh6m.svg" alt="" class="img-fluid mb-3 d-none d-md-block">
+            <h1>Create an Account</h1>
+            <p class="font-italic text-muted mb-0">Create an account and engage yourself with the aptitude skills</p>
+            <!-- <p class="font-italic text-muted">Snippet By <a href="https://bootstrapious.com" class="text-muted">
+                <u>Bootstrapious</u></a>
+            </p> -->
+        </div>
+
+        <!-- Registeration Form -->
+        <div class="col-md-7 col-lg-6 ml-auto">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <fieldset [disabled]='register_input'>
+
+                   
+    
+                        <!-- First Name -->
+                        <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-user text-muted"></i>
+                                </span>
+                            </div>
+                            <input id="firstName" type="text" name="firstname" placeholder="First Name" class="form-control bg-white border-left-0 border-md" formControlName="firstName"  [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                            </div>
+                        </div>
+    
+                        <!-- Last Name -->
+                        <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-user text-muted"></i>
+                                </span>
+                            </div>
+                            <input id="firstName" type="text" name="lastname" placeholder="Last Name" class="form-control bg-white border-left-0 border-md" formControlName="lastName"  [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                            </div>
+                        </div>
+    
+                        <!-- Email Address -->
+                        <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-envelope text-muted"></i>
+                                </span>
+                            </div>
+                            <input id="email" type="email" name="email" placeholder="Enter e-mail" class="form-control bg-white border-left-0 border-md" formControlName="email"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">E-mail is required</div>
+                                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                            </div>
+                            </div>
+                        
+    
+                        <!-- Phone Number -->
+                        <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-phone text-muted"></i>
+                                </span>
+                            </div>
+                            <input id="tel" type="tel" name="tel" placeholder="Enter Mobile Number" class="form-control bg-white border-left-0 border-md" formControlName="tel"  [ngClass]="{ 'is-invalid': submitted && f.tel.errors }">
+                            <div *ngIf="submitted && f.tel.errors" class="invalid-feedback">
+                                <div *ngIf="f.tel.errors.required">Mobile Number is required</div>
+                                <div *ngIf="f.tel.errors.pattern">Mobile number must be valid</div>
+                            </div>
+                            </div>
+                        
+                       
+    
+    
+                        <!-- Job -->
+                        <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-graduation-cap text-muted"></i>
+                                </span>
+                            </div>
+                            <select id="clg" name="clg" class="form-control custom-select bg-white border-left-0 border-md" formControlName="clg" [ngClass]="{ 'is-invalid': submitted && f.clg.errors }" >
+                                <option value="" disabled selected>College Name</option>
+                                <option *ngFor='let name of collegeName' value={{name._id}}>{{name.collegeName}}</option>
+                               
+                            </select>
+                            <div *ngIf="submitted && f.clg.errors" class="invalid-feedback">
+                                <div *ngIf="f.clg.errors.required">College  is required</div>
+                                
+                            </div>
+                        </div>
+                        <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-graduation-cap text-muted"></i>
+                                </span>
+                            </div>
+                            <select id="degree" name="degree" class="form-control custom-select bg-white border-left-0 border-md" formControlName="degree" [ngClass]="{ 'is-invalid': submitted && f.degree.errors }" >
+                                <option value="" disabled selected>Degree</option>
+                                <option value="B.E">B.E</option>
+                                <option value="B.Tech">B.Tech</option>
+                                <option value="MBA">MBA</option>
+                                <option value="M.E">M.E</option>
+                                <option value="m.Tech">M.Tech</option>
+    
+                            </select>
+                            <div *ngIf="submitted && f.degree.errors" class="invalid-feedback">
+                                <div *ngIf="f.degree.errors.required">College  is required</div>
+                                
+                            </div>
+                        </div>
+                        <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-graduation-cap text-muted"></i>
+                                </span>
+                            </div>
+                            <select id="branch" name="branch" class="form-control custom-select bg-white border-left-0 border-md" formControlName="branch" [ngClass]="{ 'is-invalid': submitted && f.branch.errors }" >
+                                <option value="" disabled selected>Branch</option>
+                                <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+                                <option value="Information and Technology">Information and Technology</option>
+                                <option value="Electronics and Communication and Engineering">Electronics and Communication and Engineering</option>
+                                <option value="Bio Medical">Bio Medical</option>
+                            </select>
+                            <div *ngIf="submitted && f.clg.errors" class="invalid-feedback">
+                                <div *ngIf="f.degree.errors.required">Branch  is required</div>
+                                
+                            </div>
+                        </div>
+                        <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-graduation-cap text-muted"></i>
+                                </span>
+                            </div>
+                            <select id="batch" name="batch" class="form-control custom-select bg-white border-left-0 border-md" formControlName="batch" [ngClass]="{ 'is-invalid': submitted && f.batch.errors }" >
+                                <option value="" disabled selected>Batch</option>
+                                <option value="2017-2021">2017-2021</option>
+                                <option value="2018-2022">2018-2022</option>
+                                <option value="2019-2023">2019-2023</option>
+                                <option value="2020-2024">2020-2024</option>
+                            </select>
+                            <div *ngIf="submitted && f.batch.errors" class="invalid-feedback">
+                                <div *ngIf="f.batch.errors.required">Batch  is required</div>
+                                
+                            </div>
+                        </div>
+    
+                        <!-- Password -->
+                        <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-lock text-muted"></i>
+                                </span>
+                            </div>
+                            <input id="password" type="password" name="password" placeholder="Password" class="form-control bg-white border-left-0 border-md" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                            </div>
+                        </div>
+    
+                        <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-lock text-muted"></i>
+                                </span>
+                            </div>
+                            <input id="passwordConfirmation" type="password" name="passwordConfirmation" placeholder="passwordConfirmation" class="form-control bg-white border-left-0 border-md" formControlName="passwordConfirmation" [ngClass]="{ 'is-invalid': submitted && f.passwordConfirmation.errors }">
+                            <div *ngIf="submitted && f.passwordConfirmation.errors" class="invalid-feedback">
+                                <div *ngIf="f.passwordConfirmation.errors.required">Password confirmation is required</div>
+                                <div *ngIf="f.passwordConfirmation.errors.minlength">Password confirmation must be at least 6 characters</div>
+                            </div>
+                        </div>
+    
+                        <!-- Password Confirmation -->
+                    
+    
+                            
+                        <!-- </div> -->
+    
+                        <!-- Submit Button -->
+                        <div class="row mb-3 px-3"> <button type="submit" class="btn btn-primary btn-block py-2">Register</button> </div>
+    
+                        <!-- Divider Text -->
+                        <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+                            <div class="border-bottom w-100 ml-5"></div>
+                            <span class="px-2 small text-muted font-weight-bold text-muted">OR</span>
+                            <div class="border-bottom w-100 mr-5"></div>
+                        </div>
+    
+                      
+                        <div class="text-center w-100">
+                            <p class="text-muted font-weight-bold">Already Registered? <a routerLink='' class="text-primary ml-2">Login</a></p>
+                        </div>
+                </fieldset>
+
+                </form>
+                </div>
+                
+        </div>
+        </div>
+        
+   

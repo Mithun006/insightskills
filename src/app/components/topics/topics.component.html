@@ -1,0 +1,24 @@
+<div class="header"> 
+    <p class="p"><a routerLink='/practice'>Practice</a> > <span style="pointer-events:none;">Learn Area</span></p>
+    <h3 class="header_1">{{topic}}</h3>
+    <hr>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div *ngFor='let ques of topics'>
+
+            <div class="col-4-lg  ml-4 mb-5">
+                <div class="card" style="width: 20rem;height: 12rem;">
+                    <div class="card-body">
+                        <h4>{{ques.topicName}}</h4>
+                        <p>New to Exam-portal? You can try these challenges these easy ones first</p>
+                       
+                        <a  class="btn btn-outline-success">Start Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
